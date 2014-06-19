@@ -26,7 +26,7 @@ public final class ServerDatabase {
   private final MockImageLoader mockImageLoader;
 
   // TODO maybe id->image map and section->id multimap so we can re-use images?
-  private final Map<Section, List<Image>> imagesBySection = new LinkedHashMap<>();
+  private final Map<Section, List<Image>> imagesBySection = new LinkedHashMap<Section, List<Image>>();
 
   private boolean initialized;
 
@@ -39,7 +39,7 @@ public final class ServerDatabase {
     initialized = true;
     Timber.d("Initializing mock data...");
 
-    List<Image> hotImages = new ArrayList<>();
+    List<Image> hotImages = new ArrayList<Image>();
     imagesBySection.put(Section.HOT, hotImages);
 
     hotImages.add(mockImageLoader.newImage("0y3uACw.jpg") //

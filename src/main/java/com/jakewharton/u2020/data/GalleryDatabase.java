@@ -24,8 +24,8 @@ import rx.util.functions.Func1;
 public class GalleryDatabase {
   private final GalleryService galleryService;
 
-  private final Map<Section, List<Image>> galleryCache = new LinkedHashMap<>();
-  private final Map<Section, PublishSubject<List<Image>>> galleryRequests = new LinkedHashMap<>();
+  private final Map<Section, List<Image>> galleryCache = new LinkedHashMap<Section, List<Image>>();
+  private final Map<Section, PublishSubject<List<Image>>> galleryRequests = new LinkedHashMap<Section, PublishSubject<List<Image>>>();
 
   @Inject public GalleryDatabase(GalleryService galleryService) {
     this.galleryService = galleryService;

@@ -84,9 +84,9 @@ public class SocketActivityHierarchyServer implements Runnable, ActivityHierarch
   private Thread mThread;
   private ExecutorService mThreadPool;
 
-  private final List<WindowListener> mListeners = new CopyOnWriteArrayList<>();
+  private final List<WindowListener> mListeners = new CopyOnWriteArrayList<WindowListener>();
 
-  private final HashMap<View, String> mWindows = new HashMap<>();
+  private final HashMap<View, String> mWindows = new HashMap<View, String>();
   private final ReentrantReadWriteLock mWindowsLock = new ReentrantReadWriteLock();
 
   private View mFocusedWindow;

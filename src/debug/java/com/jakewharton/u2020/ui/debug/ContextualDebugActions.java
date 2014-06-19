@@ -31,8 +31,8 @@ public class ContextualDebugActions implements ViewGroup.OnHierarchyChangeListen
   private final LinearLayout contextualListView;
 
   public ContextualDebugActions(DebugAppContainer container, Set<DebugAction<?>> debugActions) {
-    buttonMap = new LinkedHashMap<>();
-    actionMap = new LinkedHashMap<>();
+    buttonMap = new LinkedHashMap<DebugAction<? extends View>, View>();
+    actionMap = new LinkedHashMap<Class<? extends View>, List<DebugAction<? extends View>>>();
 
     drawerLayout = container.drawerLayout;
     drawerContext = container.drawerContext;
@@ -49,7 +49,7 @@ public class ContextualDebugActions implements ViewGroup.OnHierarchyChangeListen
 
     List<DebugAction<? extends View>> actions = actionMap.get(view);
     if (actions == null) {
-      actions = new ArrayList<>(2);
+      actions = new ArrayList<DebugAction<? extends View>>(2);
       actionMap.put(view, actions);
     }
     actions.add(action);
